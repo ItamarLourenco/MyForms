@@ -20,6 +20,10 @@ public class Logger {
         Log.e(TAG, String.valueOf(message));
     }
 
+    public static void e(Exception message) {
+        Log.e(TAG, String.valueOf(message.getMessage()));
+    }
+
     public static void i(Object message) {
         Log.i(TAG, String.valueOf(message));
     }
