@@ -8,7 +8,7 @@ import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 /**
  * Created by itamarlourenco on 16/09/15.
  */
-public enum NavigationViewItens {
+public enum NavigationViewItems {
     FORMS {
         @Override
         public String toString() {

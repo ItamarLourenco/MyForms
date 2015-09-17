@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.itamarlourenco.myforms.R;
-import com.itamarlourenco.myforms.ui.navigationView.NavigationViewItens;
+import com.itamarlourenco.myforms.ui.navigationView.NavigationViewItems;
 import com.itamarlourenco.myforms.utils.Logger;
 import com.itamarlourenco.myforms.utils.api.custom.MaterialIconViewCustom;
 import com.itamarlourenco.myforms.utils.ui.UiUtils;
@@ -20,7 +20,7 @@ import java.util.List;
  * Created by itamarlourenco on 16/09/15.
  */
 public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationViewItemAdapter.ViewHolder>{
-    private List<NavigationViewItens> mMenus = Arrays.asList(NavigationViewItens.values());
+    private List<NavigationViewItems> mMenus = Arrays.asList(NavigationViewItems.values());
     private static int mShowItem = 1;
     private static int mHideItem = 2;
 
@@ -36,7 +36,7 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
 
     @Override
     public int getItemViewType(int position) {
-        NavigationViewItens item = mMenus.get(position);
+        NavigationViewItems item = mMenus.get(position);
         if(item != null && item.show()){
             return mShowItem;
         }
@@ -45,7 +45,7 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        NavigationViewItens item = mMenus.get(i);
+        NavigationViewItems item = mMenus.get(i);
 
         if(viewHolder instanceof CustomViewHolder){
             CustomViewHolder customViewHolder = (CustomViewHolder) viewHolder;
