@@ -1,4 +1,4 @@
-package com.example.itamarlourenco.myforms.ui.NavigationView.adapter;
+package com.itamarlourenco.myforms.ui.navigationView.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.example.itamarlourenco.myforms.R;
-import com.example.itamarlourenco.myforms.ui.NavigationView.NavigationViewItens;
-import com.example.itamarlourenco.myforms.utils.Logger;
+import com.itamarlourenco.myforms.R;
+import com.itamarlourenco.myforms.ui.navigationView.NavigationViewItens;
+import com.itamarlourenco.myforms.utils.Logger;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +26,7 @@ public class NavigationViewItensAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        if(mMenus != null){
+        if (mMenus != null) {
             return mMenus.size();
         }
         return 0;
@@ -34,9 +34,9 @@ public class NavigationViewItensAdapter extends BaseAdapter {
 
     @Override
     public NavigationViewItens getItem(int position) {
-        try{
+        try {
             return mMenus.get(position);
-        }catch(IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             Logger.e(e);
         }
         return null;
@@ -51,9 +51,11 @@ public class NavigationViewItensAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View rowView = convertView;
         NavigationViewItens item = getItem(position);
-        if(rowView != null){
+        if (rowView != null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.adapter_navigation_view, parent, false);
+
+
         }
         return null;
     }

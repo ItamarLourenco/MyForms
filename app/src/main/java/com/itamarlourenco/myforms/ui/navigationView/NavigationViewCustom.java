@@ -1,11 +1,11 @@
-package com.example.itamarlourenco.myforms.ui.NavigationView;
+package com.itamarlourenco.myforms.ui.navigationView;
 
 import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-import com.example.itamarlourenco.myforms.ui.NavigationView.adapter.NavigationViewItensAdapter;
+import com.itamarlourenco.myforms.ui.navigationView.adapter.NavigationViewItensAdapter;
 
 /**
  * Created by itamarlourenco on 16/09/15.
@@ -29,7 +29,7 @@ public class NavigationViewCustom extends NavigationView {
         return mMenuListView;
     }
 
-    public void setListView(ListView menuListView){
+    public void setListView(ListView menuListView) {
         mMenuListView = menuListView;
     }
 

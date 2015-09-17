@@ -1,9 +1,9 @@
-package com.example.itamarlourenco.myforms.utils;
+package com.itamarlourenco.myforms.utils;
 
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.itamarlourenco.myforms.application.App;
+import com.itamarlourenco.myforms.application.App;
 
 /**
  * Created by itamarlourenco on 15/09/15.

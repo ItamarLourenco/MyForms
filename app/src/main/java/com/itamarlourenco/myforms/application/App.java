@@ -1,4 +1,4 @@
-package com.example.itamarlourenco.myforms.application;
+package com.itamarlourenco.myforms.application;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.itamarlourenco.myforms" >
+    package="com.itamarlourenco.myforms">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:name=".application.App">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,12 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="AA_DB_NAME" android:value="MyForms.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="MyForms.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
     </application>
 
 </manifest>

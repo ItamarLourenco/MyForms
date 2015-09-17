@@ -1,8 +1,8 @@
-package com.example.itamarlourenco.myforms;
+package com.itamarlourenco.myforms;
 
 import android.os.Bundle;
 
-import com.example.itamarlourenco.myforms.application.BaseActivity;
+import com.itamarlourenco.myforms.application.BaseActivity;
 
 
 public class MainActivity extends BaseActivity {
