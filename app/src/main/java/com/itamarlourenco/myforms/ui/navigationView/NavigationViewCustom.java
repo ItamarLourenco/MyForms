@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 
 import com.itamarlourenco.myforms.ui.navigationView.adapter.NavigationViewItemAdapter;
 
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+
 /**
  * Created by itamarlourenco on 16/09/15.
  */
@@ -39,7 +41,8 @@ public class NavigationViewCustom extends NavigationView {
             this.mMenuRecyclerView.setHasFixedSize(true);
             LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
             this.mMenuRecyclerView.setLayoutManager(mLayoutManager);
-            this.mMenuRecyclerView.setAdapter(new NavigationViewItemAdapter(context));
+            this.mMenuRecyclerView.setAdapter(new NavigationViewItemAdapter());
+            this.mMenuRecyclerView.setItemAnimator(new SlideInUpAnimator());
         }
     }
 }

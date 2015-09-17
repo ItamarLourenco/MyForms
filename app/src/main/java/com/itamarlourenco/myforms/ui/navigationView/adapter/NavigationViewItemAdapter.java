@@ -1,19 +1,17 @@
 package com.itamarlourenco.myforms.ui.navigationView.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.itamarlourenco.myforms.R;
 import com.itamarlourenco.myforms.ui.navigationView.NavigationViewItens;
 import com.itamarlourenco.myforms.utils.Logger;
 import com.itamarlourenco.myforms.utils.api.custom.MaterialIconViewCustom;
+import com.itamarlourenco.myforms.utils.ui.UiUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,36 +19,43 @@ import java.util.List;
 /**
  * Created by itamarlourenco on 16/09/15.
  */
-public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationViewItemAdapter.CustomViewHolder>{
-
+public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationViewItemAdapter.ViewHolder>{
     private List<NavigationViewItens> mMenus = Arrays.asList(NavigationViewItens.values());
-    private int lastPosition = -1;
-    private Context mContext;
+    private static int mShowItem = 1;
+    private static int mHideItem = 2;
 
-    public NavigationViewItemAdapter(Context mContext) {
-        this.mContext = mContext;
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
+        if(type == mShowItem){
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_navigation_view, viewGroup, false);
+            return new CustomViewHolder(view);
+        }else{
+            return new ViewHolder(UiUtils.getInvisibleView(viewGroup.getContext()));
+        }
     }
 
     @Override
-    public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_navigation_view, viewGroup, false);
-        return new CustomViewHolder(view);
+    public int getItemViewType(int position) {
+        NavigationViewItens item = mMenus.get(position);
+        if(item != null && item.show()){
+            return mShowItem;
+        }
+        return mHideItem;
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
         NavigationViewItens item = mMenus.get(i);
-        if (customViewHolder != null && item != null) {
-            if (!item.show()) {
-                return;
-            }
 
-            customViewHolder.text.setText(Html.fromHtml(item.toString()));
-            if (item.icon() != null) {
-                customViewHolder.icon.setIcon(item.icon());
-            }
+        if(viewHolder instanceof CustomViewHolder){
+            CustomViewHolder customViewHolder = (CustomViewHolder) viewHolder;
 
-            setAnimation(customViewHolder.text, i);
+            if (item != null && item.show()) {
+                customViewHolder.text.setText(Html.fromHtml(item.toString()));
+                if (item.icon() != null) {
+                    customViewHolder.icon.setIcon(item.icon());
+                }
+            }
         }
     }
 
@@ -59,15 +64,13 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
         return (mMenus != null ? mMenus.size() : 0);
     }
 
-    private void setAnimation(View viewToAnimate, int position) {
-        if (position > lastPosition) {
-            Animation animation = AnimationUtils.loadAnimation(mContext, android.R.anim.slide_in_left);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        public ViewHolder(View itemView) {
+            super(itemView);
         }
     }
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class CustomViewHolder extends ViewHolder implements View.OnClickListener{
         public MaterialIconViewCustom icon;
         public TextView text;
 
