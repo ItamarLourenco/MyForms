@@ -7,4 +7,9 @@
         <!-- For toolbar -->
     </style>
 
+    <style name="AppTheme.Text" parent="AppTheme">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
 </resources>

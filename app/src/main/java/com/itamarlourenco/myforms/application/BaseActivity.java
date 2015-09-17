@@ -2,9 +2,9 @@ package com.itamarlourenco.myforms.application;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.widget.ListView;
 
 import com.itamarlourenco.myforms.R;
 import com.itamarlourenco.myforms.ui.navigationView.NavigationViewCustom;
@@ -44,9 +44,11 @@ public class BaseActivity extends AppCompatActivity {
     public void handleNavigationView() {
         mNavigationViewCustom = (NavigationViewCustom) findViewById(R.id.navigationView);
         if (mNavigationViewCustom != null) {
-            ListView menuListView = (ListView) findViewById(R.id.menuNavigationView);
-            mNavigationViewCustom.setListView(menuListView);
-            mNavigationViewCustom.createMenuListView(getApplicationContext());
+            RecyclerView menuRecyclerView = (RecyclerView) mNavigationViewCustom.findViewById(R.id.menuNavigationView);
+            if(menuRecyclerView != null){
+                mNavigationViewCustom.setRecycleView(menuRecyclerView);
+                mNavigationViewCustom.createMenuListView(getApplicationContext());
+            }
         }
     }
 }

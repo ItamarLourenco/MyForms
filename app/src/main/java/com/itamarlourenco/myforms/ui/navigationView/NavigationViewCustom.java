@@ -2,16 +2,17 @@ package com.itamarlourenco.myforms.ui.navigationView;
 
 import android.content.Context;
 import android.support.design.widget.NavigationView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.ListView;
 
-import com.itamarlourenco.myforms.ui.navigationView.adapter.NavigationViewItensAdapter;
+import com.itamarlourenco.myforms.ui.navigationView.adapter.NavigationViewItemAdapter;
 
 /**
  * Created by itamarlourenco on 16/09/15.
  */
 public class NavigationViewCustom extends NavigationView {
-    private ListView mMenuListView;
+    private RecyclerView mMenuRecyclerView;
 
     public NavigationViewCustom(Context context) {
         super(context);
@@ -25,15 +26,20 @@ public class NavigationViewCustom extends NavigationView {
         super(context, attrs, defStyleAttr);
     }
 
-    public ListView getListView() {
-        return mMenuListView;
+    public RecyclerView getMenuRecyclerView() {
+        return mMenuRecyclerView;
     }
 
-    public void setListView(ListView menuListView) {
-        mMenuListView = menuListView;
+    public void setRecycleView(RecyclerView recycleView) {
+        this.mMenuRecyclerView = recycleView;
     }
 
     public void createMenuListView(Context context) {
-        mMenuListView.setAdapter(new NavigationViewItensAdapter(context));
+        if(mMenuRecyclerView != null){
+            this.mMenuRecyclerView.setHasFixedSize(true);
+            LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
+            this.mMenuRecyclerView.setLayoutManager(mLayoutManager);
+            this.mMenuRecyclerView.setAdapter(new NavigationViewItemAdapter(context));
+        }
     }
 }
