@@ -37,7 +37,7 @@ public enum NavigationViewItens {
 
         @Override
         public boolean show() {
-            return true;
+            return false;
         }
     };
 

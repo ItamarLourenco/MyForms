@@ -29,9 +29,9 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
         if(type == mShowItem){
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_navigation_view, viewGroup, false);
             return new CustomViewHolder(view);
-        }else{
-            return new ViewHolder(UiUtils.getInvisibleView(viewGroup.getContext()));
         }
+
+        return new ViewHolder(UiUtils.getInvisibleView(viewGroup.getContext()));
     }
 
     @Override
