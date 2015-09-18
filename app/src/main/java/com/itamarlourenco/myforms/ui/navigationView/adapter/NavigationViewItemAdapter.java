@@ -21,11 +21,11 @@ import java.util.List;
  */
 public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationViewItemAdapter.ViewHolder>{
     private List<NavigationViewItems> mMenus = Arrays.asList(NavigationViewItems.values());
-    private static int mShowItem = 1;
+    private final static int SHOW_ITEM = 1;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
-        if(type == mShowItem){
+        if(type == SHOW_ITEM){
             View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_navigation_view, viewGroup, false);
             return new CustomViewHolder(view);
         }
@@ -37,7 +37,7 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
     public int getItemViewType(int position) {
         NavigationViewItems item = mMenus.get(position);
         if(item != null && item.show()){
-            return mShowItem;
+            return SHOW_ITEM;
         }
         return super.getItemViewType(position);
     }

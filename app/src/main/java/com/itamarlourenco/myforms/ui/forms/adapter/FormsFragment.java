@@ -1,4 +1,4 @@
-package com.itamarlourenco.myforms.ui.forms;
+package com.itamarlourenco.myforms.ui.forms.adapter;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.itamarlourenco.myforms.R;
 import com.itamarlourenco.myforms.model.Form.FormWrapper;
+import com.itamarlourenco.myforms.ui.forms.FormsAdapter;
 import com.itamarlourenco.myforms.utils.api.custom.MaterialIconViewCustom;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;

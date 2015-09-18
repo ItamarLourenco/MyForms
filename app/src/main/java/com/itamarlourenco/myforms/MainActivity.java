@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.itamarlourenco.myforms.application.BaseActivity;
-import com.itamarlourenco.myforms.ui.forms.FormsFragment;
+import com.itamarlourenco.myforms.ui.forms.adapter.FormsFragment;
 
 
 public class MainActivity extends BaseActivity {
