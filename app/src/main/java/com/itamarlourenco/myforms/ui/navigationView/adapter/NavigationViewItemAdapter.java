@@ -22,7 +22,6 @@ import java.util.List;
 public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationViewItemAdapter.ViewHolder>{
     private List<NavigationViewItems> mMenus = Arrays.asList(NavigationViewItems.values());
     private static int mShowItem = 1;
-    private static int mHideItem = 2;
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
@@ -40,7 +39,7 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
         if(item != null && item.show()){
             return mShowItem;
         }
-        return mHideItem;
+        return super.getItemViewType(position);
     }
 
     @Override
@@ -49,8 +48,7 @@ public class NavigationViewItemAdapter extends RecyclerView.Adapter<NavigationVi
 
         if(viewHolder instanceof CustomViewHolder){
             CustomViewHolder customViewHolder = (CustomViewHolder) viewHolder;
-
-            if (item != null && item.show()) {
+            if (item != null) {
                 customViewHolder.text.setText(Html.fromHtml(item.toString()));
                 if (item.icon() != null) {
                     customViewHolder.icon.setIcon(item.icon());

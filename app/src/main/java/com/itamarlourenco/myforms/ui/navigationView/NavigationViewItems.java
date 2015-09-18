@@ -6,7 +6,8 @@ import com.itamarlourenco.myforms.application.App;
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 
 /**
- * Created by itamarlourenco on 16/09/15.
+ * Created by itamarlourenco on 16/09/15.3
+ * Class NavigationViewItems for create menu.
  */
 public enum NavigationViewItems {
     FORMS {
@@ -37,7 +38,7 @@ public enum NavigationViewItems {
 
         @Override
         public boolean show() {
-            return false;
+            return true;
         }
     };
 

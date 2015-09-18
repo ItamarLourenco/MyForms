@@ -21,6 +21,9 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Create toolbar
+     */
     protected void handleToolbar() {
         handleToolbar(getString(R.string.app_name));
     }
@@ -35,12 +38,19 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Set title for toolbar
+     * @param title
+     */
     public static void setTitle(String title) {
         if (mToolbar != null && !TextUtils.isEmpty(title)) {
             mToolbar.setTitle(title);
         }
     }
 
+    /**
+     * Create navigation view
+     */
     public void handleNavigationView() {
         mNavigationViewCustom = (NavigationViewCustom) findViewById(R.id.navigationView);
         if (mNavigationViewCustom != null) {

@@ -39,8 +39,7 @@ public class NavigationViewCustom extends NavigationView {
     public void createMenuListView(Context context) {
         if(mMenuRecyclerView != null){
             this.mMenuRecyclerView.setHasFixedSize(true);
-            LinearLayoutManager mLayoutManager = new LinearLayoutManager(context);
-            this.mMenuRecyclerView.setLayoutManager(mLayoutManager);
+            this.mMenuRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.mMenuRecyclerView.setAdapter(new NavigationViewItemAdapter());
             this.mMenuRecyclerView.setItemAnimator(new SlideInUpAnimator());
         }
