@@ -1,15 +1,17 @@
 package com.itamarlourenco.myforms.model.input;
 
+import android.text.TextUtils;
+
 /**
  * Created by itamarlourenco on 21/09/15.
  */
 public abstract class Input {
-    protected String name;
-    protected int value;
-    protected String mask;
-    protected int maxLength = 50;
-    protected boolean validate = false;
-    protected String regex;
+    private String name;
+    private String value;
+    private String mask;
+    private int maxLength = 50;
+    private boolean validate = false;
+    private String regex;
 
     public String getName() {
         return name;
@@ -19,12 +21,12 @@ public abstract class Input {
         return mask;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setValue(Object value) {
+        this.value = String.valueOf(value);
     }
 
     public void setName(String name) {
@@ -43,9 +45,23 @@ public abstract class Input {
         if(getRegex() == null){
             return false;
         }
-        return getRegex().matches(String.valueOf(getValue()));
+
+        String valueString = String.valueOf(getValue());
+        if(TextUtils.isEmpty(valueString)){
+            return false;
+        }
+
+        return valueString.matches(getRegex());
     }
 
+    public Long getNumber() {
+        String valueString = String.valueOf(getValue());
+        if(!TextUtils.isEmpty(valueString)){
+            String value = valueString.replaceAll("[^0-9]","");
+            return Long.parseLong(value);
+        }
+        return 0L;
+    }
 
     protected abstract String setMask();
     protected abstract String getRegex();

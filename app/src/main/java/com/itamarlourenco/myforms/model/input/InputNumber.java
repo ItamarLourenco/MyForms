@@ -6,11 +6,11 @@ package com.itamarlourenco.myforms.model.input;
 public class InputNumber extends Input {
     @Override
     protected String setMask() {
-        return "###.###.###-##";
+        return null;
     }
 
     @Override
     protected String getRegex() {
-        return "[0-9]+";
+        return "\\d+";
     }
 }
