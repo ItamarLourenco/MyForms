@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.example.itamarlourenco.myforms"
+        applicationId "com.itamarlourenco.myforms"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1

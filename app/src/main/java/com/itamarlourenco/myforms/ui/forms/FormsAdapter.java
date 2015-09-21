@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.itamarlourenco.myforms.R;
-import com.itamarlourenco.myforms.model.Form.Form;
+import com.itamarlourenco.myforms.model.form.Form;
 
 import java.util.List;
 

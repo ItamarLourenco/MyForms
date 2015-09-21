@@ -1,4 +1,4 @@
-package com.example.itamarlourenco.myforms;
+package com.itamarlourenco.myforms;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

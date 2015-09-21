@@ -61,4 +61,11 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Get Navigation view custom
+     */
+    public NavigationViewCustom getNavigationViewCustom(){
+        return mNavigationViewCustom;
+    }
 }

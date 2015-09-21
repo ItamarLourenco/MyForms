@@ -40,6 +40,21 @@ public enum NavigationViewItems {
         public boolean show() {
             return true;
         }
+    },
+    REGISTERDOIS {
+        public String toString() {
+            return App.getContext().getString(R.string.titleRegister);
+        }
+
+        @Override
+        public MaterialDrawableBuilder.IconValue icon() {
+            return MaterialDrawableBuilder.IconValue.ACCOUNT_CHECK;
+        }
+
+        @Override
+        public boolean show() {
+            return false;
+        }
     };
 
     public abstract MaterialDrawableBuilder.IconValue icon();

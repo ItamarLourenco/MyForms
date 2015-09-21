@@ -1,4 +1,4 @@
-package com.itamarlourenco.myforms.model.Form;
+package com.itamarlourenco.myforms.model.form;
 
 import android.os.Parcel;
 import android.os.Parcelable;

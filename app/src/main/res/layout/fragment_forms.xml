@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        app:backgroundTint="@color/accent"
+        app:rippleColor="#000"
         app:layout_anchor="@id/formCardList"
         app:layout_anchorGravity="bottom|right|end" />
+
 </FrameLayout>

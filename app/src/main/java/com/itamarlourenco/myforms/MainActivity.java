@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.itamarlourenco.myforms.application.BaseActivity;
+import com.itamarlourenco.myforms.model.input.InputNumber;
 import com.itamarlourenco.myforms.ui.forms.adapter.FormsFragment;
 
 
 public class MainActivity extends BaseActivity {
+    public Fragment mCurrentFragment = FormsFragment.newInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +18,11 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         handleToolbar();
         handleNavigationView();
-
         loadForms();
     }
 
     private void loadForms() {
-        setCurrentFragment(FormsFragment.newInstance(), null);
+        setCurrentFragment(mCurrentFragment, null);
     }
 
     private void setCurrentFragment(Fragment fragment, String tag){
