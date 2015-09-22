@@ -12,9 +12,7 @@ import android.view.ViewGroup;
 
 import com.itamarlourenco.myforms.R;
 import com.itamarlourenco.myforms.model.form.FormWrapper;
-import com.itamarlourenco.myforms.model.input.InputNumber;
 import com.itamarlourenco.myforms.ui.forms.FormsAdapter;
-import com.itamarlourenco.myforms.utils.Logger;
 import com.itamarlourenco.myforms.utils.api.custom.MaterialIconViewCustom;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
@@ -64,10 +62,6 @@ public class FormsFragment extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        InputNumber number = new InputNumber();
-        number.setValue(100);
-        Logger.t(number.isValidate());
-
         super.onActivityCreated(savedInstanceState);
     }
 }

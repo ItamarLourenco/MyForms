@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
@@ -18,11 +19,19 @@ import static junit.framework.Assert.assertTrue;
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
 public class NumberTest {
+
     @Test
     public void testNumberIsValid() throws Exception {
         InputNumber number = new InputNumber();
-        number.setValue("123");
+        number.setValue(123);
         assertTrue("Validation number is not validate", number.isValidate());
+    }
+
+    @Test
+    public void testNumberIsNotValid() throws Exception {
+        InputNumber number = new InputNumber();
+        number.setValue("myform123");
+        assertFalse("Validation number is validate", number.isValidate());
     }
 
     @Test
