@@ -17,26 +17,26 @@ import static junit.framework.Assert.assertTrue;
  */
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
-public class CpfTest {
+public class CnpjTest {
 
     @Test
     public void testValidationCpf() throws Exception {
-        Cpf cpf = new Cpf();
-        cpf.setValue("399.637.118-71");
-        assertTrue("This cpf is not valided = " + cpf.getValueWithMask(), cpf.isValidate());
+        Cnpj cnpj = new Cnpj();
+        cnpj.setValue("66.424.722/0001-81");
+        assertTrue("This cnpj is not valided = " + cnpj.getValueWithMask(), cnpj.isValidate());
     }
 
     @Test
-    public void testValidationNotCpf() throws Exception {
-        Cpf cpf = new Cpf();
-        cpf.setValue("123.456.789-99");
-        assertFalse("This cpf is valided = " + cpf.getValueWithMask(), cpf.isValidate());
+    public void testValidationNotCpd() throws Exception {
+        Cnpj cnpj = new Cnpj();
+        cnpj.setValue("66.424.722/0001-80");
+        assertFalse("This cnpj is valided = " + cnpj.getValueWithMask(), cnpj.isValidate());
     }
 
     @Test
     public void testCheckMaskOfCpf() throws Exception {
-        Cpf cpf = new Cpf();
-        cpf.setValue("39963711871");
-        assertTrue("This cpf MASK is NOT valided = " + cpf.getValueWithMask(), cpf.getValueWithMask().equals("399.637.118-71"));
+        Cnpj cnpj = new Cnpj();
+        cnpj.setValue("66424722000180");
+        assertTrue("This cnpj MASK is NOT valided = " + cnpj.getValueWithMask(), cnpj.getValueWithMask().equals("66.424.722/0001-80"));
     }
 }

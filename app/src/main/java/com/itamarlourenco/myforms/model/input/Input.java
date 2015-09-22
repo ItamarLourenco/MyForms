@@ -75,6 +75,15 @@ public abstract class Input {
         return 0L;
     }
 
+    public Long getNumber(Object value) {
+        String valueString = String.valueOf(value);
+        if(!TextUtils.isEmpty(valueString)){
+            String v = valueString.replaceAll("[^0-9]","");
+            return Long.parseLong(v);
+        }
+        return 0L;
+    }
+
     public String getString(){
         String valueString = String.valueOf(getValue());
         if(!TextUtils.isEmpty(valueString)){
@@ -83,7 +92,6 @@ public abstract class Input {
         }
         return null;
     }
-
 
     protected String mask(){
         return null;

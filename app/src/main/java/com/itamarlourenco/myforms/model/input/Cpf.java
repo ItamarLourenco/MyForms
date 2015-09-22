@@ -13,7 +13,7 @@ public class Cpf extends Text {
 
     @Override
     public void setValue(Object value) {
-        super.setValue(String.valueOf(value).replaceAll("[^0-9]",""));
+        super.setValue(getNumber(value));
     }
 
     @Override
