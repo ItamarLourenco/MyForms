@@ -1,9 +1,15 @@
 package com.itamarlourenco.myforms.model.input;
 
+import android.content.Context;
+
 /**
  * Created by itamarlourenco on 22/09/15.
  */
 public class Phone extends InputNumber {
+    public Phone(Context context) {
+        super(context);
+    }
+
     @Override
     public void setValue(Object value) {
         super.setValue(getNumber(value));

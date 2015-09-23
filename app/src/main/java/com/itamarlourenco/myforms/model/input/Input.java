@@ -1,6 +1,11 @@
 package com.itamarlourenco.myforms.model.input;
 
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.widget.EditText;
 
 import com.itamarlourenco.myforms.model.input.exceptions.MaskException;
 import com.itamarlourenco.myforms.model.input.validations.Mask;
@@ -8,9 +13,13 @@ import com.itamarlourenco.myforms.model.input.validations.Mask;
 /**
  * Created by itamarlourenco on 21/09/15.
  */
-public abstract class Input {
+public abstract class Input extends EditText {
     private String name;
     private String value;
+
+    public Input(Context context) {
+        super(context);
+    }
 
     public String getName() {
         return name;
@@ -54,7 +63,11 @@ public abstract class Input {
 
         String valueString;
         if(withMask){
-            valueString = String.valueOf(getValueWithMask());
+            try{
+                valueString = String.valueOf(getValueWithMask());
+            }catch (MaskException e){
+                valueString = String.valueOf(getValue());
+            }
         }else{
             valueString = String.valueOf(getValue());
         }
@@ -92,6 +105,15 @@ public abstract class Input {
         }
         return null;
     }
+
+    public String clearString(Object value){
+        String v = String.valueOf(value);
+        return v.replaceAll("[.]", "").replaceAll("[-]", "")
+                .replaceAll("[/]", "").replaceAll("[(]", "")
+                .replaceAll("[)]", "");
+    }
+
+
 
     protected String mask(){
         return null;

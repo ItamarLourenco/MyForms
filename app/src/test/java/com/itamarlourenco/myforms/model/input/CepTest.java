@@ -1,9 +1,11 @@
 package com.itamarlourenco.myforms.model.input;
 
+import android.content.Context;
 import android.os.Build;
 
 import com.itamarlourenco.myforms.BuildConfig;
 import com.itamarlourenco.myforms.MainActivity;
+import com.itamarlourenco.myforms.application.BaseActivity;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +22,7 @@ import static junit.framework.Assert.assertTrue;
  */
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
-public class CpfTest {
+public class CepTest {
     private MainActivity mActivity;
 
     @Before
@@ -29,23 +31,23 @@ public class CpfTest {
     }
 
     @Test
-    public void testValidationCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("399.637.118-71");
-        assertTrue("This cpf is not valid = " + cpf.getValueWithMask(), cpf.isValidate());
+    public void testValidationCep() throws Exception {
+        Cep cep = new Cep(mActivity);
+        cep.setValue("03451-000");
+        assertTrue("This cep is not valid = " + cep.getValueWithMask(), cep.isValidate());
     }
 
     @Test
-    public void testValidationNotCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("123.456.789-99");
-        assertFalse("This cpf is valid = " + cpf.getValueWithMask(), cpf.isValidate());
+    public void testValidationNotCep() throws Exception {
+        Cep cep = new Cep(mActivity);
+        cep.setValue("03451-00");
+        assertFalse("This cep is valid = " + cep.getValueWithMask(), cep.isValidate());
     }
 
     @Test
-    public void testCheckMaskOfCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("39963711871");
-        assertTrue("This cpf MASK is NOT valid = " + cpf.getValueWithMask(), cpf.getValueWithMask().equals("399.637.118-71"));
+    public void testCheckMaskOfCep() throws Exception {
+        Cep cep = new Cep(mActivity);
+        cep.setValue("03451000");
+        assertTrue("This cep MASK is NOT valid = " + cep.getValueWithMask(), cep.getValueWithMask().equals("03451-000"));
     }
 }

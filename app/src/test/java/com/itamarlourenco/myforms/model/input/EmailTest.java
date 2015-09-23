@@ -20,7 +20,7 @@ import static junit.framework.Assert.assertTrue;
  */
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
 @RunWith(RobolectricGradleTestRunner.class)
-public class CpfTest {
+public class EmailTest {
     private MainActivity mActivity;
 
     @Before
@@ -29,23 +29,16 @@ public class CpfTest {
     }
 
     @Test
-    public void testValidationCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("399.637.118-71");
-        assertTrue("This cpf is not valid = " + cpf.getValueWithMask(), cpf.isValidate());
+    public void testValidationEmail() throws Exception {
+        Email email = new Email(mActivity);
+        email.setValue("itamar.developer@gmail.com");
+        assertTrue("This email is not valid = " + email.getValue(), email.isValidate());
     }
 
     @Test
-    public void testValidationNotCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("123.456.789-99");
-        assertFalse("This cpf is valid = " + cpf.getValueWithMask(), cpf.isValidate());
-    }
-
-    @Test
-    public void testCheckMaskOfCpf() throws Exception {
-        Cpf cpf = new Cpf(mActivity);
-        cpf.setValue("39963711871");
-        assertTrue("This cpf MASK is NOT valid = " + cpf.getValueWithMask(), cpf.getValueWithMask().equals("399.637.118-71"));
+    public void testValidationNotEmail() throws Exception {
+        Email email = new Email(mActivity);
+        email.setValue("itamar.developer$gmail.com");
+        assertFalse("This email is valid = " + email.getValue(), email.isValidate());
     }
 }
